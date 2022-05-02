@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class RootController {
-    @Value( "${app.greeting}" )
-    private String greeting;
+    @Value( "${spring.profiles.active}" )
+    private String profile;
         
     @GetMapping("/")
     @ResponseBody
     public String greetPage() {
-        return "Hello: " + greeting;
+        return "Hello, you are using " + profile + " profile";
     }
 }
